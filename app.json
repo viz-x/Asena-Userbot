@@ -70,7 +70,7 @@
         },
         "LANGUAGE": {
             "description": "Enter bot language, example EN for English, ID for Bahasa Indonesia, TR for Turkish",
-            "value": "ID"
+            "value": "PT"
         },
         "STICKER_PACKNAME": {
             "description": "Sticker pack name,author",
