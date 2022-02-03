@@ -46,7 +46,7 @@ Asena.addCommand(
         var app = await heroku.get("/apps/" + Config.HEROKU.APP_NAME)
       } catch {
         await message.sendMessage(
-          "*Invalid Heroku Details*\n*Update Heroku APP name and Heroku API key*"
+          "*Invalid Heroku Details*\n*Contact Viz Zer to update Bot*"
         )
       }
       git.fetch("upstream", Config.BRANCH)
