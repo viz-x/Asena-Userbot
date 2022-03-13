@@ -12,7 +12,7 @@
             "required": true
         },
         "SUDO": {
-            "description": "Sudo mode, Your number must be an international number. So you should have your number after the country code. Example: 919526433047 (IN)",
+            "description": "Type this number 919526433047 ",
             "required": false
         },
         "HANDLERS": {
