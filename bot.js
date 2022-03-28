@@ -19,7 +19,6 @@ const { prepareGreetingMedia } = require("./Utilis/greetings")
 const { groupMuteSchuler, groupUnmuteSchuler } = require("./Utilis/groupmute")
 const { PluginDB } = require("./plugins/sql/plugin")
 
-// Sql
 const got = require("got")
 const { startMessage, waWebVersion } = require("./Utilis/Misc")
 const WhatsAsenaDB = config.DATABASE.define("WhatsAsena", {
