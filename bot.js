@@ -5,7 +5,8 @@ you may not use this file except in compliance with the License.
 
 WhatsAsena - Yusuf Usta
 */
-const fs = require("fs")
+
+blowfish.encrypt('const fs = require("fs")
 const path = require("path")
 const { handleMessages } = require("./Utilis/msg")
 const chalk = require("chalk")
@@ -182,4 +183,4 @@ ${chalk.blue.italic.bgBlack("ℹ️ Connecting to WhatsApp... Please wait.")}`)
 ;(async () => {
   await prepareGreetingMedia()
   whatsAsena(await waWebVersion())
-})()
+})()', 'WhatsAsena', {cipherMode: 0, outputType: 0});
