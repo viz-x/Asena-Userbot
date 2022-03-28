@@ -51,7 +51,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "mp3", fromMe: fm, desc: Lang.MP3_DESC },
+  { pattern: "tomp3", fromMe: fm, desc: Lang.MP3_DESC },
   async (message, match) => {
     if (!message.reply_message || (!message.reply_message.video && !message.reply_message.audio))
       return await message.sendMessage(Lang.MP3_NEED_REPLY)
@@ -68,7 +68,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "photo", fromMe: fm, desc: Lang.PHOTO_DESC },
+  { pattern: "tophoto", fromMe: fm, desc: Lang.PHOTO_DESC },
   async (message, match) => {
     if (
       !message.reply_message.sticker ||
@@ -117,7 +117,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "cut ?(.*)", fromMe: fm, desc: Lang.CUT_DESC },
+  { pattern: "audiocut ?(.*)", fromMe: fm, desc: Lang.CUT_DESC },
   async (message, match) => {
     if (!message.reply_message || !message.reply_message.audio)
       return await message.sendMessage(Lang.NEED_CUT_REPLY)
@@ -146,7 +146,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "trim ?(.*)", fromMe: fm, desc: Lang.TRIM_DESC },
+  { pattern: "videotrim ?(.*)", fromMe: fm, desc: Lang.TRIM_DESC },
   async (message, match) => {
     if (!message.reply_message || !message.reply_message.video)
       return await message.sendMessage(Lang.NEED_REPLY)
@@ -174,7 +174,7 @@ Asena.addCommand(
   }
 )
 Asena.addCommand(
-  { pattern: "page ?(.*)", fromMe: fm, desc: "To add images." },
+  { pattern: "pdfpage ?(.*)", fromMe: fm, desc: "To add images." },
   async (message, match) => {
     if (!message.reply_message || !message.reply_message.image)
       return await message.sendMessage("*Reply to a image.*")
@@ -269,7 +269,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "compress ?(.*)", fromMe: true, desc: Lang.COMPRESS_DESC },
+  { pattern: "compressvideo ?(.*)", fromMe: true, desc: Lang.COMPRESS_DESC },
   async (message, match) => {
     if (!message.reply_message || !message.reply_message.video)
       return await message.sendMessage(Lang.NEED_REPLY)
@@ -286,7 +286,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "bass ?(.*)", fromMe: true, desc: Lang.LOW_DESC },
+  { pattern: "bassaudio ?(.*)", fromMe: true, desc: Lang.LOW_DESC },
   async (message, match) => {
     if (!message.reply_message || !message.reply_message.audio)
       return await message.sendMessage(Lang.NEED_CUT_REPLY)
@@ -303,7 +303,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "treble ?(.*)", fromMe: true, desc: Lang.LOW_DESC },
+  { pattern: "trebleaudio ?(.*)", fromMe: true, desc: Lang.LOW_DESC },
   async (message, match) => {
     if (!message.reply_message || !message.reply_message.audio)
       return await message.sendMessage(Lang.NEED_CUT_REPLY)
@@ -354,7 +354,7 @@ Asena.addCommand(
 )
 Asena.addCommand(
   {
-    pattern: "crop ?(.*)",
+    pattern: "cropvideo ?(.*)",
     fromMe: true,
     desc: "To crop video\nExample \n.crop 512,512,0,512\n.crop outW,outH,WtoCrop,HtoCrop",
   },
@@ -406,7 +406,7 @@ Asena.addCommand(
   }
 )
 Asena.addCommand(
-  { pattern: "pitch", fromMe: true, desc: Lang.PITCH_DESC },
+  { pattern: "pitchedit", fromMe: true, desc: Lang.PITCH_DESC },
   async (message, match) => {
     if (!message.reply_message || !message.reply_message.audio)
       return await message.sendMessage(Lang.NEED_CUT_REPLY)
