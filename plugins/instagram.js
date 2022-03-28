@@ -6,7 +6,7 @@ const Language = require("../language")
 const Lang = Language.getString("insta")
 Asena.addCommand(
   {
-    pattern: "insta ?(.*)",
+    pattern: "instagram ?(.*)",
     fromMe: true,
     desc: Lang.INSTA_DESC,
   },
@@ -37,7 +37,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "story ?(.*)", fromMe: true, desc: Lang.STORY_DESC },
+  { pattern: "storygram ?(.*)", fromMe: true, desc: Lang.STORY_DESC },
   async (message, match) => {
     match = !message.reply_message ? match : message.reply_message.text
     if (
@@ -77,7 +77,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "fb ?(.*)",
+    pattern: "facebook ?(.*)",
     fromMe: true,
     desc: Lang.FB_DESC,
   },
