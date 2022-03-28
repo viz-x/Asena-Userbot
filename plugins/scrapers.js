@@ -131,7 +131,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "video ?(.*)", fromMe: fm, desc: Lang.VIDEO_DESC },
+  { pattern: "ytvideo ?(.*)", fromMe: fm, desc: Lang.VIDEO_DESC },
   async (message, match) => {
     match = !message.reply_message ? match : message.reply_message.text
     let vid = ytid.exec(match)
@@ -197,7 +197,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "img ?(.*)", fromMe: true, desc: Lang.IMG_DESC },
+  { pattern: "upldimg ?(.*)", fromMe: true, desc: Lang.IMG_DESC },
   async (message, match) => {
     if (match === "") return await message.sendMessage(Lang.NEED_WORDS)
     gis(match, async (error, result) => {
