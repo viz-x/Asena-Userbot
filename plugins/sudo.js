@@ -8,7 +8,7 @@ const heroku = new Heroku({
 const baseURI = "/apps/" + Config.HEROKU.APP_NAME
 
 bot.addCommand(
-  { pattern: "setsudo ?(.*)", fromMe: true, desc: "add replied or mentioned or given num to sudo" },
+  { pattern: "givesudo ?(.*)", fromMe: true, desc: "givesudo and reply a person" },
   async (message, match) => {
     const vars = await heroku.get(baseURI + "/config-vars")
     const sudo =
