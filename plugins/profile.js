@@ -16,7 +16,7 @@ const Lang = Language.getString("profile")
 
 Asena.addCommand(
   {
-    pattern: "left ?(.*)",
+    pattern: "kickme ?(.*)",
     fromMe: true,
     desc: Lang.KICKME_DESC,
     onlyGroup: true,
@@ -27,7 +27,7 @@ Asena.addCommand(
   }
 )
 Asena.addCommand(
-  { pattern: "getjids ?(.*)", fromMe: true, desc: "Get Jids name." },
+  { pattern: "fulljids ?(.*)", fromMe: true, desc: "Get Jids name." },
   async (message, match) => {
     if (match === "")
       return await message.sendMessage(
@@ -153,7 +153,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "jid ?(.*)", fromMe: true, desc: Lang.JID_DESC },
+  { pattern: "gid ?(.*)", fromMe: true, desc: Lang.JID_DESC },
   async (message, match) => {
     if (message.reply_message !== false) {
       await message.sendMessage(message.reply_message.jid)
