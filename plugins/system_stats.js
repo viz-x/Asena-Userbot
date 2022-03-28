@@ -37,7 +37,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "sysd", fromMe: true, desc: Lang.SYSD_DESC },
+  { pattern: "system", fromMe: true, desc: Lang.SYSD_DESC },
   async (message, match) => {
     const child = spawnSync("neofetch", ["--stdout"]).stdout.toString("utf-8")
     await message.sendMessage("```" + child + "```")
@@ -45,7 +45,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "warn ?(.*)", fromMe: fm, desc: "To warn", onlyGroup: true },
+  { pattern: "wern ?(.*)", fromMe: fm, desc: "To warn", onlyGroup: true },
   async (message, match) => {
     if (match == "list") {
       let msg = ""
