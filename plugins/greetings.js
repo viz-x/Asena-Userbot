@@ -31,7 +31,7 @@ let fm = true
 const s = "```"
 Asena.addCommand(
   {
-    pattern: "welcome ?(.*)",
+    pattern: "welcomsg ?(.*)",
     fromMe: fm,
     desc: Lang.WELCOME_DESC,
     onlyGroup: true,
@@ -69,7 +69,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "goodbye ?(.*)",
+    pattern: "goodbymsg ?(.*)",
     fromMe: fm,
     desc: Lang.GOODBYE_DESC,
     onlyGroup: true,
@@ -105,7 +105,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "banbye ?(.*)",
+    pattern: "banbymsg ?(.*)",
     fromMe: fm,
     desc: Lang.BANBYE_DESC,
     onlyGroup: true,
@@ -273,14 +273,14 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "mention ?(.*)",
+    pattern: "mentionrply ?(.*)",
     fromMe: true,
     desc: Lang.MENTION_DESC,
   },
   async (message, match) => {
     if (match == "")
       return await message.sendMessage(
-        genButtons(["ON", "OFF", "GET"], Lang.M_ENABLE, "Choose"),
+        genButtons(["TURN ON", "TURN OFF", "GET SCRIPT"], Lang.M_ENABLE, "Choose"),
         {},
         MessageType.buttonsMessage
       )
