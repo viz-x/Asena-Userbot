@@ -32,7 +32,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "shutdown", fromMe: true, desc: Lang.SHUTDOWN_DESC },
+  { pattern: "turnoff", fromMe: true, desc: Lang.SHUTDOWN_DESC },
   async (message, match) => {
     await heroku
       .get(baseURI + "/formation")
