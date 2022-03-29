@@ -30,7 +30,7 @@ let fm = true
 
 Asena.addCommand(
   {
-    pattern: "trt ?(.*)",
+    pattern: "transilate ?(.*)",
     desc: Lang.TRANSLATE_DESC,
     usage: Lang.TRANSLATE_USAGE,
     fromMe: true,
@@ -62,7 +62,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "tts ?(.*)", fromMe: fm, desc: Lang.TTS_DESC },
+  { pattern: "texttospeech ?(.*)", fromMe: fm, desc: Lang.TTS_DESC },
   async (message, match) => {
     if (match == "") return
     let LANG = config.LANG.toLowerCase(),
