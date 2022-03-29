@@ -13,7 +13,7 @@ const { MessageType } = require("@adiwajshing/baileys")
 const { getName } = require("../Utilis/download")
 const Lang = Language.getString("admin")
 Asena.addCommand(
-  { pattern: "kick ?(.*)", fromMe: true, onlyGroup: true, desc: Lang.BAN_DESC },
+  { pattern: "keck ?(.*)", fromMe: true, onlyGroup: true, desc: Lang.BAN_DESC },
   async (message, match) => {
     let participants = await message.groupMetadata(message.jid)
     let im = await checkImAdmin(participants, message.client.user.jid)
@@ -53,7 +53,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "add(?: |$)(.*)",
+    pattern: "Add(?: |$)(.*)",
     fromMe: true,
     onlyGroup: true,
     desc: Lang.ADD_DESC,
@@ -99,7 +99,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "promote ?(.*)",
+    pattern: "makeadmin ?(.*)",
     fromMe: true,
     onlyGroup: true,
     desc: Lang.PROMOTE_DESC,
@@ -139,7 +139,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "demote ?(.*)",
+    pattern: "downrole ?(.*)",
     fromMe: true,
     onlyGroup: true,
     desc: Lang.DEMOTE_DESC,
@@ -181,7 +181,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "mute ?(.*)",
+    pattern: "freeze ?(.*)",
     fromMe: true,
     onlyGroup: true,
     desc: Lang.MUTE_DESC,
@@ -205,7 +205,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "unmute ?(.*)",
+    pattern: "unfreeze ?(.*)",
     fromMe: true,
     onlyGroup: true,
     desc: Lang.UNMUTE_DESC,
@@ -221,7 +221,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "invite ?(.*)",
+    pattern: "invitelink ?(.*)",
     fromMe: true,
     onlyGroup: true,
     desc: Lang.INVITE_DESC,
@@ -316,7 +316,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "join ?(.*)",
+    pattern: "joingrp ?(.*)",
     fromMe: true,
     desc: Lang.JOIN_DESC,
   },
@@ -333,7 +333,7 @@ Asena.addCommand(
 
 Asena.addCommand(
   {
-    pattern: "revoke",
+    pattern: "resetlink",
     fromMe: true,
     onlyGroup: true,
     desc: Lang.REVOKE_DESC,
