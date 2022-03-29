@@ -61,7 +61,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "take ?(.*)", fromMe: true, desc: Lang.TAKE_DESC },
+  { pattern: "editexif ?(.*)", fromMe: true, desc: Lang.TAKE_DESC },
   async (message, match) => {
     if (!message.reply_message.sticker || !message.reply_message)
       return await message.sendMessage(Lang.TAKE_NEED_REPLY)
