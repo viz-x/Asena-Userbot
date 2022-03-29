@@ -70,7 +70,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "block ?(.*)", fromMe: true, desc: Lang.BLOCK_DESC },
+  { pattern: "blockuser ?(.*)", fromMe: true, desc: Lang.BLOCK_DESC },
   async (message, match) => {
     if (message.reply_message !== false) {
       await message.sendMessage(
@@ -112,7 +112,7 @@ Asena.addCommand(
 )
 
 Asena.addCommand(
-  { pattern: "unblock ?(.*)", fromMe: true, desc: Lang.UNBLOCK_DESC },
+  { pattern: "unblockuser ?(.*)", fromMe: true, desc: Lang.UNBLOCK_DESC },
   async (message, match) => {
     if (message.reply_message !== false) {
       await message.client.blockUser(message.reply_message.jid, "remove")
