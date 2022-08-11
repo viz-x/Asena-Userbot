@@ -36,10 +36,13 @@ const WhatsAsenaDB = config.DATABASE.define("WhatsAsena", {
 
 fs.readdirSync("./plugins/sql/").forEach((plugin) => {
   if (path.extname(plugin).toLowerCase() == ".js") {
-    require("./plugins/sql/" + plugin)
-  }
-})
+     require('./plugins/sql/' + plugin);
+    }
+});
 
+const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream: 'store' }) })
+
+const plugindb = require('./plugins/sql/plugin');
 String.prototype.format = function () {
   var i = 0,
     args = arguments
