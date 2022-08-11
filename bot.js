@@ -73,7 +73,7 @@ async function bot () {
     const bot = WAConnection({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['WhatsApp-Bot-Md','Safari','1.0.0'],
+        browser: ['WhatsAsena','Safari','1.0.0'],
         auth: state
     });
     
