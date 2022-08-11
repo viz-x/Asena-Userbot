@@ -7,7 +7,7 @@
     ],
     "stack": "container",
     "env": {
-        "ASENA_SESSION": {
+        "SESSION": {
             "description": "Enter whatsapp web session.",
             "required": true
         },
