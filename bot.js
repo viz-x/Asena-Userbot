@@ -68,53 +68,46 @@ Array.prototype.remove = function () {
   return this
 }
 
-async function whatsAsena(version) {
-  await config.DATABASE.sync()
-  let StrSes_Db = await WhatsAsenaDB.findAll({
-    where: {
-      info: "StringSession",
-    },
-  })
-  const conn = new WAConnection()
-  conn.version = version
-  const Session = new StringSession()
-  conn.logger.level = config.DEBUG ? "debug" : "warn"
-  var nodb
+async function bot () {
+  await config.DATABASE.sync();
+    const bot = WAConnection({
+        logger: pino({ level: 'silent' }),
+        printQRInTerminal: true,
+        browser: ['WhatsApp-Bot-Md','Safari','1.0.0'],
+        auth: state
+    });
+    
+    conn.logger.level = config.DEBUG ? 'debug' : 'warn';
+    var nodb;   
+    nodb = true;
 
-  if (StrSes_Db.length < 1 || config.CLR_SESSION) {
-    nodb = true
-    conn.loadAuthInfo(Session.deCrypt(config.SESSION))
-  } else {
-    conn.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value))
-  }
+        conn.on('connection.update', async (update) => {
+        const { connection, lastDisconnect } = update	    
+        if (connection === 'close') {
+        let reason = new Boom(lastDisconnect?.error)?.output.statusCode
+            if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete Session and Scan Again`); bot.logout(); }
+            else if (reason === DisconnectReason.connectionClosed) { console.log("Connection closed, reconnecting...."); startbot(); }
+            else if (reason === DisconnectReason.connectionLost) { console.log("Connection Lost from Server, reconnecting..."); startbot(); }
+            else if (reason === DisconnectReason.connectionReplaced) { console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First"); bot.logout(); }
+            else if (reason === DisconnectReason.loggedOut) { console.log(`Device Logged Out, Please Scan Again And Run.`); bot.logout(); }
+            else if (reason === DisconnectReason.restartRequired) { console.log("Restart Required, Restarting..."); startbot(); }
+            else if (reason === DisconnectReason.timedOut) { console.log("Connection TimedOut, Reconnecting..."); startbot(); }
+            else bot.end(`Unknown DisconnectReason: ${reason}|${connection}`)
+        }
+        console.log(
+            chalk.green.bold('session restored ✅ !')
+        );
+        console.log('Connected...', update)
+    })
 
-  conn.on("connecting", () => {
-    console.log(`${chalk.red.bgBlack("B")}${chalk.green.bgBlack(
-      "o"
-    )}${chalk.blue.bgBlack("t")}${chalk.yellow.bgBlack(
-      "t"
-    )}${chalk.white.bgBlack("u")}${chalk.magenta.bgBlack("s")}
-${chalk.white.bold.bgBlack("Version:")} ${chalk.red.bold.bgBlack(
-      config.VERSION
-    )}
-${chalk.blue.italic.bgBlack("ℹ️ Connecting to WhatsApp... Please wait.")}`)
-  })
-  conn.on("open", async () => {
-    console.log(chalk.green.bold("✅ Login successful!"))
+    conn.on('creds.update', saveState)
+    
+
+    conn.on('open', async () => {
+        console.log(
+            chalk.green.bold('✅ Login successful!')
     console.log(chalk.blueBright.italic("⬇️ Installing external plugins..."))
     console.log(chalk.blueBright.italic("✅ Login information updated!"))
-
-    const authInfo = conn.base64EncodedAuthInfo()
-    if (StrSes_Db.length < 1) {
-      await WhatsAsenaDB.create({
-        info: "StringSession",
-        value: Session.createStringSession(authInfo),
-      })
-    } else {
-      await StrSes_Db[0].update({
-        value: Session.createStringSession(authInfo),
-      })
-    }
 
     let plugins = await PluginDB.findAll()
     plugins.map(async (plugin) => {
